@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="./icons/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="./icons/favicon.svg" />
+    <link rel="shortcut icon" href="./icons/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="./icons/apple-touch-icon.png" />
+    <link rel="manifest" href="./site.webmanifest" />
+    <title>Stone Follari | Senior Engineer, SaaS Founder & Entrepreneur</title>
+    <meta name="description" content="Stone Follari's portfolio. Full-Stack Senior Engineer, SaaS founder, and developer specializing in Rust, TypeScript, and scalable architecture.">
+    <meta name="keywords" content="Stone Follari, Full-Stack Engineer, Rust, TypeScript, SaaS Founder, developer portfolio, startup, entrepreneur, software engineer">
+    <meta name="author" content="Stone Follari">
+    <meta name="robots" content="index, follow">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="[YOUR_SITE_URL]">
+    <meta property="og:title" content="Stone Follari | Full-Stack Engineer & SaaS Founder">
+    <meta property="og:description" content="Portfolio of Stone Follari. Full-Stack Engineer specializing in high-performance, scalable systems (Rust, TypeScript).">
+    <meta property="og:image" content="[YOUR_IMAGE_URL]/img/portfolio.png"> <meta property="og:site_name" content="Stone Follari's Portfolio">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="[YOUR_SITE_URL]">
+    <meta name="twitter:title" content="Stone Follari | Full-Stack Engineer & SaaS Founder">
+    <meta name="twitter:description" content="Full-Stack Engineer, SaaS founder, and developer specializing in Rust, TypeScript, and scalable architecture.">
+    <meta name="twitter:image" content="[YOUR_IMAGE_URL]/img/portfolio.png">
+    <link rel="stylesheet" href="./dist/output.css">
+    
+    <script>
+        const userPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const savedTheme = localStorage.getItem('theme');
+
+        // Logic: If user saved 'dark', OR if no theme is saved and OS prefers dark.
+        if (savedTheme === 'dark' || (!savedTheme && userPrefersDark)) {
+            document.documentElement.classList.add('dark');
+        } else if (savedTheme === 'light') {
+             // If user saved 'light', ensure the class is NOT present.
+            document.documentElement.classList.remove('dark');
+        } 
+        // If Incognito and no saved theme, it defaults to light unless OS is dark (handled above).
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get the path part of the URL (e.g., '/', '/resume', '/contact')
+            const url = window.location.href.toLowerCase();
+            const pathname = window.location.pathname.toLowerCase();
+            
+            // Get the container element
+            const resumeContent = document.getElementById('resume-content');
+
+            // Check if the URL path includes the word 'resume'
+            // This handles '/resume', '/resume.html', or even 'example.com/resume/'
+            if (pathname.includes('/resume') || url.includes('#resume')) {
+                // If the URL contains '/resume', remove the 'hidden' class to show the content
+                resumeContent.classList.remove('hidden');
+            } 
+            // If it's the base URL (e.g., example.com/ or example.com/index.html),
+            // the 'hidden' class will remain, keeping the content hidden.
+        });
+    </script>
+
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-light-bg text-light-text dark:bg-dark-bg dark:text-dark-text transition-colors duration-500">
+
+    <nav class="sticky top-0 z-10 bg-white/90 backdrop-blur-sm shadow-md dark:bg-dark-bg/90 transition-colors duration-500">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
+            <!-- <a href="#hero" class="text-xl font-semibold text-accent-color hover:text-accent-hover transition-colors"></a> -->
+             <a href="#hero" class="text-xl font-medium hover:text-accent-hover text-black dark:text-white transition-colors opacity-30 transition-colors duration-500">Stone Follari <span class="text-gray-500 dark:text-gray-400 transition-colors duration-500 px-2">|</span> Portfolio</a>
+            <div class="flex items-center space-x-4">
+                <div class="space-x-4 hidden md:block">
+                    <a href="#about" class="nav-link">About</a>
+                    <a href="#ventures" class="nav-link">Ventures</a>
+                    <a href="#projects" class="nav-link">Projects</a>
+                    <!-- <a href="#education" class="nav-link">Education</a> -->
+                    <a href="#contact" class="nav-link">Contact</a>
+                </div>
+                <button id="theme-toggle" class="p-2 rounded-full text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+                    <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+
+        <section id="hero" class="min-h-[50vh] flex flex-col justify-center pt-12 pb-16">
+            
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center max-w-6xl mx-auto w-full">
+                <div class="md:col-span-3 flex justify-center md:justify-start order-2 md:order-1">
+                  <img 
+                      src="./img/portrait.png" 
+                      alt="Stone Follari Headshot" 
+                      class="w-48 h-48 rounded-full object-cover shadow-2xl"
+                  >
+                </div>
+
+                <div class="md:col-span-9 order-2 md:order-2 text-center md:text-left">
+                    <h1 class="text-6xl sm:text-7xl tracking-tighter text-balance mb-2 leading-tight">
+                        Stone Follari
+                    </h1>
+                    <h2 class="text-xl sm:text-xl font-medium text-gray-500 dark:text-gray-400 mb-6 transition-colors duration-500">
+                        Full-Stack Engineer ⸱ SaaS Founder ⸱ Entrepreneur
+                    </h2>
+                    <p class="text-xl text-balance tracking-lighter mb-8 text-gray-600 dark:text-gray-300 transition-colors duration-500">
+                        I specialize in high-performance web applications using <span class="font-semibold">TypeScript, React, and PSQL</span>. I build, launch, and scale my own products.
+                    </p>
+                    <div class="flex justify-center md:justify-start space-x-4">
+                        <a href="#ventures" class="btn-primary">View Ventures</a>
+                        <a href="mailto:stonefollari1998@gmail.com" class="btn-secondary">Get In Touch</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="py-16 border-t border-gray-200 dark:border-gray-700 transition-colors duration-500">
+            <h3 class="section-heading text-xl tracking-tighter text-balance mb-6">My Background</h3>
+            <div class="grid md:grid-cols-4 gap-8 items-start">
+                
+                <div class="md:col-span-1 order-2 md:order-1">
+                    <h4 class="text-2xl tracking-tighter text-balance mb-3 border-b border-gray-200 dark:border-gray-700 pb-2 transition-colors duration-500">Core Stack</h4>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-badge">TypeScript</span>
+                        <span class="skill-badge">React/Vite/Next</span>
+                        <span class="skill-badge">PostgreSQL</span>
+                        <span class="skill-badge">Node.js/Express</span>
+                        <span class="skill-badge">Rust</span>
+                        <span class="skill-badge">Tailwind CSS</span>
+                        <span class="skill-badge">Cloud (AWS/Heroku)</span>
+                    </div>
+                  <div class="mt-8 text-center md:text-left">
+                        <h4 class="text-2xl tracking-tighter text-balance mb-3 border-b border-gray-200 dark:border-gray-700 pb-2 transition-colors duration-500 inline-block">Connect</h4>
+                        
+                        <style>
+                            /* Custom CSS to center the title and border on small screens */
+                            @media (max-width: 767px) { /* Tailwind's 'md' breakpoint is 768px */
+                                #about .text-center h4 {
+                                    border-bottom: 1px solid theme('colors.gray.200'); /* Light mode border */
+                                    padding-bottom: 0.5rem;
+                                    margin-left: auto;
+                                    margin-right: auto;
+                                }
+                                .dark #about .text-center h4 {
+                                     border-bottom: 1px solid theme('colors.gray.700'); /* Dark mode border */
+                                }
+                            }
+                        </style>
+
+                        <div class="flex flex-col space-y-2 text-sm items-center md:items-start">
+                            <span class="hover:text-accent-color transition-colors duration-500">+1 919 346 3320</span>
+                            <a href="mailto:stonefollari1998@gmail.com" class="hover:text-accent-color underline">stonefollari1998@gmail.com</a>
+                            <a href="https://linkedin.com/in/stonefollari" target="_blank" class="hover:text-accent-color underline">LinkedIn</a>
+                            <a href="https://github.com/stonefollari" target="_blank" class="hover:text-accent-color underline">GitHub</a>
+                            <a href="./docs/resume.pdf" target="_blank" class="text-accent-color hover:underline font-medium inline-block mt-2">Resume (PDF)</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="md:col-span-3 order-1 md:order-2 text-md space-y-6">
+                    <p>My passion for coding began early, launching small projects and social media sites in high school. I continued a self-driven, entrepreneurial approach to learning and growing as a developer through-out college.</p>
+                    
+                    <!-- <p>I transitioned from academic studies in <span class="font-semibold">Physics</span> a discipline that instilled a deep love for problem decomposition and rigorous analysis—directly into professional software development.</p> -->
+                    
+                    <p>My career quickly accelerated in the startup environment. My passion and unique experience allowed me to rapidly advance to a <span class="font-semibold">Senior Engineer</span> role, where I became an expert in building robust, modern applications primarily using <span class="font-semibold">TypeScript</span> across the stack, <span class="font-semibold">PostgreSQL</span> and <span class="font-semibold">Rust</span> for critical backend tasks, and deploying using modern CI/CD.</p>
+
+                    <p>After experiencing a major startup layoff, I chose to transition to full-time entrepreneurship to develop my own projects, most notably <span class="font-semibold">Sellmotto</span> - an enterprise-grade e-commerce inventory management and listing platform.</p>
+
+                    <!-- <p class="font-semibold text-xl pt-4">I take pride in my ability to solve complex problems.</p> -->
+                </div>
+            </div>
+        </section>
+
+        <section id="ventures" class="py-16 border-t border-gray-200 dark:border-gray-700 transition-colors duration-500">
+            <h3 class="section-heading text-2xl tracking-tighter text-balance mb-6">Founder Ventures</h3>
+            <div class="grid md:grid-cols-1 gap-8">
+                <div class="bg-slate-100 dark:bg-slate-800 rounded-lg shadow-lg venture-card transition-colors duration-500 overflow-hidden">
+                    
+                    <img 
+                      src="./img/sellmotto.png" 
+                      alt="Sellmotto E-Commerce Platform" 
+                      class="w-full h-48 object-cover object-[12%_center] border-b border-gray-200 dark:border-gray-700 transition-colors duration-500"
+                      >
+
+                  <div class="p-6">
+                      <h4 class="text-3xl tracking-tighter text-balance mb-2 flex items-center justify-between">
+                        Sellmotto 
+                        <span class="text-xs text-accent-color tracking-normal font-semibold px-2 py-1 bg-accent-color/10 rounded">Enterprise SaaS</span>
+                      </h4>
+                      <span class="text-sm text-gray-500 font-medium italic mb-2 block">Co-Founder & CTO</span>
+                      <p class="text-gray-500 dark:text-gray-400 mb-4 transition-colors duration-500">Enterprise-level platform streamlining multi-channel e-commerce. Built from scratch with a proprietary architecture to support high-SKU businesses and automate complex listing processes.</p>
+                      <p class="text-sm font-medium mb-4">Role: Sole technical engineer, responsible for full architecture (100k+ lines of code) and deployment pipeline.</p>
+                      <div class="tech-tags-list">
+                            <span class="tech-tag">TypeScript</span>
+                            <span class="tech-tag">Vite/React</span>
+                            <span class="tech-tag">PostgreSQL</span>
+                            <span class="tech-tag">Stripe</span>
+                        </div>
+                      <a href="https://sellmotto.com" target="_blank" class="text-accent-color hover:text-accent-hover font-medium mt-3 inline-block">Visit Site</a>
+                  </div>
+                </div>
+                <div class="bg-slate-100 dark:bg-slate-800 p-6 rounded-lg shadow-lg venture-card transition-colors duration-500">
+                    <h4 class="text-3xl tracking-tighter text-balance mb-2 flex items-center justify-between">
+                      Team Automate
+                      <span class="text-xs text-gray-500 tracking-normal font-semibold px-2 py-1 bg-gray-500/10 rounded">Custom Software</span>
+                    </h4>
+                    <span class="text-sm text-gray-500 font-medium italic mb-2 block">Co-Founder & Lead Dev</span>
+                    <p class="text-gray-500 dark:text-gray-400 mb-4 transition-colors duration-500">Custom e-commerce multi-channel listing service integrated directly into a retailer's existing platform to expand online sales capabilities.</p>
+                    <p class="text-gray-500 dark:text-gray-400 text-sm mb-4 transition-colors duration-500">Inspired the architectural foundation and market understanding for Sellmotto. Focused on robust integration and data normalization.</p>
+                    <div class="tech-tags-list">
+                          <span class="tech-tag">TypeScript</span>
+                          <span class="tech-tag">React</span>
+                          <span class="tech-tag">PSQL</span>
+                          <span class="tech-tag">Web Scraping</span>
+                          <span class="tech-tag">API</span>
+                      </div>
+                    <!-- <a href="https://teamautomate.com" target="_blank" class="text-accent-color hover:text-accent-hover font-medium mt-3 inline-block">View Case Study</a> -->
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="py-16 border-t border-gray-200 dark:border-gray-700 transition-colors duration-500">
+            <h3 class="section-heading text-2xl tracking-tighter text-balance mb-6">Projects</h3>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-slate-100 dark:bg-slate-800 rounded-lg shadow-lg venture-card transition-colors duration-500 overflow-hidden">
+    
+                  <img src="./img/ranktrivia.png" alt="Screenshot of RankTrivia application" class="w-full h-48 object-cover border-b border-gray-200 dark:border-gray-700 transition-colors duration-500">
+
+                  <div class="p-6">
+                      <h4 class="text-3xl tracking-tighter text-balance mb-2">RankTrivia</h4>
+                      <p class="text-gray-500 dark:text-gray-400 mb-3 transition-colors duration-500">A fresh take on trivia, use AI to generate unique ranked lists. Supports solo play and real-time multiplayer using WebSockets.</p>
+                      <div class="tech-tags-list mb-4">
+                          <span class="tech-tag">TypeScript</span>
+                          <span class="tech-tag">Vite/React</span>
+                          <span class="tech-tag">PSQL</span>
+                          <span class="tech-tag">WebSocket</span>
+                          <span class="tech-tag">LLM Integration</span>
+                      </div>
+                      <div class="flex space-x-4">
+                          <a href="https://ranktrivia.com" target="_blank" class="text-accent-color hover:text-accent-hover font-medium mt-3 inline-block">Try a Game</a>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="bg-slate-100 dark:bg-slate-800 rounded-lg shadow-lg venture-card transition-colors duration-500 overflow-hidden">
+                  
+                  <img src="./img/ephemeralgallery.png" alt="Screenshot of Ephemeral Gallery concept" class="w-full h-48 object-cover border-b border-gray-200 dark:border-gray-700 transition-colors duration-500">
+
+                  <div class="p-6">
+                      <h4 class="text-3xl tracking-tighter text-balance mb-2">Ephemeral Gallery</h4>
+                      <p class="text-gray-500 dark:text-gray-400 mb-3 transition-colors duration-500">A concept for sharing photography through a fleeting, view-once experience. Focuses on the unique user experience and scarcity.</p>
+                      <div class="tech-tags-list mb-4">
+                          <span class="tech-tag">TypeScript</span>
+                          <span class="tech-tag">Vite/React</span>
+                          <span class="tech-tag">PSQL</span>
+                      </div>
+                      <div class="flex space-x-4">
+                          <a href="https://ephemeralgallery.com" target="_blank" class="text-accent-color hover:text-accent-hover font-medium mt-3 inline-block">Visit Gallery</a>
+                      </div>
+                  </div>
+              </div>
+
+              <!-- Hidding GPTrimmer, not launched yet -->
+                <!-- <div class="md:col-span-2 bg-slate-100 dark:bg-slate-800 p-6 rounded-lg shadow-lg venture-card transition-colors duration-500">
+                    <h4 class="text-xl font-semibold mb-2">GPTrimmer Chrome Extension</h4>
+                    <p class="text-gray-500 dark:text-gray-400 mb-3">Simple, effective Chrome extension to solve a real-world performance issue by dynamically trimming long conversation threads from the ChatGPT DOM.</p>
+                    <div class="tech-tags-list mb-4">
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">Chrome API</span>
+                    </div>
+                    <div class="flex space-x-4">
+                        <a href="https://chrome.google.com/webstore/detail/..." target="_blank" class="text-accent-color hover:text-accent-hover font-medium mt-3 inline-block">Web Store</a>
+                        <a href="https://github.com/stonefollari/gpt-trimmer" target="_blank" class="text-accent-color hover:text-accent-hover font-medium mt-3 inline-block">GitHub</a>
+                    </div>
+                </div> -->
+            </div>
+        </section>
+
+        <div id="resume-content" class="hidden">
+        <section id="work" class="py-16 border-t border-gray-200 dark:border-gray-700 transition-colors duration-500">
+              <h3 class="section-heading text-2xl tracking-tighter text-balance mb-6">Previous Work Experience</h3>
+              
+              <div class="space-y-12">
+                  
+                  <div class="relative pl-8 sm:pl-32 group">
+                      <span class="absolute left-0 top-0 w-2 h-2 rounded-full bg-accent-color transition-transform transform group-hover:scale-150 duration-300"></span>
+                      <div class="absolute left-0 sm:left-16 top-0 bottom-0 w-px bg-gray-300 dark:bg-gray-700 transition-colors duration-500"></div>
+
+                      <p class="text-sm font-semibold text-gray-500 dark:text-gray-400 mb-1">2021 – 2023</p>
+                      <h4 class="text-2xl tracking-tighter text-balance mb-1">Senior Engineer</h4>
+                      <p class="text-accent-color font-medium mb-3">
+                        <a href="https://backtrace.io/" target="_blank">Backtrace.io</a>
+                      </p>
+                      
+                      <ul class="list-disc pl-5 text-gray-600 dark:text-gray-300 space-y-2">
+                          <li>Lead Engineer & Architect in ground-zero development of SCIM provisioning service to allow native and one-click integration with multiple major industry clients and third-party platforms. Facilitated a <span class="font-semibold">major deal</span> to close, expanding client-base significantly, and facilitated immediate native integration with the parent company.</li>
+                          <li>Re-engineered in-house client usage monitoring services. Discovered more up-sell opportunities, relieved server over-utilization crashes for on-call Engineers.</li>
+                          <li>Re-engineered storage quota enforcement and billing system. Reduced wasted system utilization and cost-per-client, reduce cost of net-negative free clients, facilitated policy change to up-sell customers, and developed tools for users to better manage their own usage.</li>
+                      </ul>
+                  </div>
+                  
+                  <div class="relative pl-8 sm:pl-32 group">
+                      <span class="absolute left-0 top-0 w-2 h-2 rounded-full bg-accent-color transition-transform transform group-hover:scale-150 duration-300"></span>
+                      <div class="absolute left-0 sm:left-16 top-0 bottom-0 w-px bg-gray-300 dark:bg-gray-700 transition-colors duration-500"></div>
+
+                      <p class="text-sm font-semibold text-gray-500 dark:text-gray-400 mb-1">2020 – 2021</p>
+                      <h4 class="text-2xl tracking-tighter text-balance mb-1">Software Engineer</h4>
+                      <p class="text-accent-color font-medium mb-3">
+                        <a href="https://anewgo.com/" target="_blank">
+                          Anewgo
+                        </a>
+                      </p>
+                      
+                      <ul class="list-disc pl-5 text-gray-600 dark:text-gray-300 space-y-2">
+                          <li>Ground zero development of client-facing analytics dashboard. Utilized browsing data to determine most-popular products/options. Allow clients to know their most desired products and create customized marketing campaigns.</li>
+                          <li>Created ML Recommendation Engine, show product suggestions to improve sales potential and UX. TensorFlow+Python.
+                          </li>
+                          <li>Solved BigQuery scalability issues. Raw-data pre-processing pipeline, scheduled scripts & queries to process data into more manageable and useful sub-tables.</li>
+                          <li>Designed & implemented multivariate user score based on how browsing behaviors align with users who purchased a home. Dashboard and alerted sales team to reach out and close potential sale.</li>
+                          <li>Refactored major backend services into optimized Rust services. Facilitated transition from B2C to a B2B2C marketplace with ~1000x expected traffic to clients. Implemented caching and data pre-processing.</li>
+                          <li>Mentored data analysis intern in project to determine company growth and project directions for optimized growth.</li>
+                      </ul>
+                  </div>
+
+              </div>
+          </section>
+        <section id="education" class="py-16 border-t border-gray-200 dark:border-gray-700">
+            <h3 class="section-heading text-xl font-semibold mb-6">Education</h3>
+            
+            <div class="max-w-3xl mx-auto text-center">
+                <h4 class="text-2xl font-semibold mb-1">University of North Carolina Greensboro (UNCG)</h4>
+                <p class="text-lg font-medium text-accent-color mb-1">B.S. Physics, Computer Science - Minor in Math</p>
+                <p class="text-gray-500 dark:text-gray-400 italic">Graduated: 2020 - 3.92 GPA</p>
+            </div>
+        </section>
+        </div>
+
+
+
+        <section id="contact" class="py-16 border-t border-gray-200 dark:border-gray-700 text-center transition-colors duration-500">
+            <h3 class="section-heading text-2xl tracking-tighter text-balance mb-2">Connect</h3>
+            <p class="text-md text-gray-500 dark:text-gray-400 max-w-4xl mx-auto mb-8">
+                Have an opportunity or new ventures? Let's connect!
+            </p>
+            
+            <div class="flex flex-wrap justify-center space-x-4 sm:space-x-8 text-md font-medium">
+                <span class="text-light-text dark:text-dark-text transition-colors duration-500">+1 919 346 3320</span>
+                
+                <a href="mailto:stonefollari1998@gmail.com" class="hover:text-accent-color underline">Email</a>
+                
+                <a href="https://linkedin.com/in/stonefollari" target="_blank" class="hover:text-accent-color underline hidden sm:inline">LinkedIn</a>
+            </div>
+            </section>
+
+    </div>
+
+    <footer class="text-center py-6 border-t border-gray-200 dark:border-gray-700 bg-slate-100 dark:bg-slate-800/90 transition-colors duration-500">
+        <p class="text-sm text-gray-500 dark:text-gray-400 transition-colors duration-500">
+            &copy; 2025 Stone Follari
+        </p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
