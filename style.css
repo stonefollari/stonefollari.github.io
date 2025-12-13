@@ -24,4 +24,12 @@ html {
     html {
         scroll-behavior: smooth;
     }
+    
+    .interactive-card {
+        /* 1. Base styles (Note the transition-all and duration-300) */
+        @apply cursor-pointer rounded-lg shadow-md transition-transform duration-300 ease-in-out hover:-translate-y-1 hover:shadow-xl; 
+        
+        /* 2. Hover styles */
+        @apply hover:-translate-y-1 hover:shadow-xl; 
+    }
 }

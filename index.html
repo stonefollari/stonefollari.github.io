@@ -14,48 +14,51 @@
     <meta name="author" content="Stone Follari">
     <meta name="robots" content="index, follow">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="[YOUR_SITE_URL]">
+    <meta property="og:url" content="https://stonefollari.github.io/">
     <meta property="og:title" content="Stone Follari | Full-Stack Engineer & SaaS Founder">
     <meta property="og:description" content="Portfolio of Stone Follari. Full-Stack Engineer specializing in high-performance, scalable systems (Rust, TypeScript).">
-    <meta property="og:image" content="[YOUR_IMAGE_URL]/img/portfolio.png"> <meta property="og:site_name" content="Stone Follari's Portfolio">
+    <meta property="og:image" content="https://stonefollari.github.io/img/portrait.png"> <meta property="og:site_name" content="Stone Follari's Portfolio">
 
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="[YOUR_SITE_URL]">
+    <meta name="twitter:url" content="https://stonefollari.github.io/">
     <meta name="twitter:title" content="Stone Follari | Full-Stack Engineer & SaaS Founder">
     <meta name="twitter:description" content="Full-Stack Engineer, SaaS founder, and developer specializing in Rust, TypeScript, and scalable architecture.">
-    <meta name="twitter:image" content="[YOUR_IMAGE_URL]/img/portfolio.png">
+    <meta name="twitter:image" content="https://stonefollari.github.io/img/portrait.png">
     <link rel="stylesheet" href="./dist/output.css">
     
     <script>
         const userPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
         const savedTheme = localStorage.getItem('theme');
 
-        // Logic: If user saved 'dark', OR if no theme is saved and OS prefers dark.
         if (savedTheme === 'dark' || (!savedTheme && userPrefersDark)) {
             document.documentElement.classList.add('dark');
         } else if (savedTheme === 'light') {
-             // If user saved 'light', ensure the class is NOT present.
             document.documentElement.classList.remove('dark');
         } 
-        // If Incognito and no saved theme, it defaults to light unless OS is dark (handled above).
 
         document.addEventListener('DOMContentLoaded', function() {
-            // Get the path part of the URL (e.g., '/', '/resume', '/contact')
             const url = window.location.href.toLowerCase();
             const pathname = window.location.pathname.toLowerCase();
             
-            // Get the container element
             const resumeContent = document.getElementById('resume-content');
 
-            // Check if the URL path includes the word 'resume'
-            // This handles '/resume', '/resume.html', or even 'example.com/resume/'
             if (pathname.includes('/resume') || url.includes('#resume')) {
-                // If the URL contains '/resume', remove the 'hidden' class to show the content
                 resumeContent.classList.remove('hidden');
             } 
-            // If it's the base URL (e.g., example.com/ or example.com/index.html),
-            // the 'hidden' class will remain, keeping the content hidden.
+            const cards = document.querySelectorAll('.interactive-card');
+
+            cards.forEach(card => {
+                const url = card.getAttribute('data-href');
+                
+                if (url) {
+                    card.addEventListener('click', () => {
+                        // Opens the URL found in the data-href attribute in a new tab
+                        window.open(url, '_blank');
+                    });
+                }
+            });
         });
+
     </script>
 
     <!-- <script src="https://cdn.tailwindcss.com"></script> -->
@@ -63,7 +66,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body class="bg-light-bg text-light-text dark:bg-dark-bg dark:text-dark-text transition-colors duration-500">
-
     <nav class="sticky top-0 z-10 bg-white/90 backdrop-blur-sm shadow-md dark:bg-dark-bg/90 transition-colors duration-500">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
             <!-- <a href="#hero" class="text-xl font-semibold text-accent-color hover:text-accent-hover transition-colors"></a> -->
@@ -174,19 +176,22 @@
         <section id="ventures" class="py-16 border-t border-gray-200 dark:border-gray-700 transition-colors duration-500">
             <h3 class="section-heading text-2xl tracking-tighter text-balance mb-6">Founder Ventures</h3>
             <div class="grid md:grid-cols-1 gap-8">
-                <div class="bg-slate-100 dark:bg-slate-800 rounded-lg shadow-lg venture-card transition-colors duration-500 overflow-hidden">
+                <div class="bg-slate-100 dark:bg-slate-800 rounded-lg shadow-lg venture-card transition-colors duration-500 overflow-hidden interactive-card transition-transform" data-href="https://sellmotto.com/">
                     
                     <img 
                       src="./img/sellmotto.png" 
                       alt="Sellmotto E-Commerce Platform" 
-                      class="w-full h-48 object-cover object-[12%_center] border-b border-gray-200 dark:border-gray-700 transition-colors duration-500"
+                      class="w-full h-48 object-cover object-[12%_center] border-b border-gray-200 dark:border-gray-700 transition-colors duration-500 rounded-t-md"
                       >
 
                   <div class="p-6">
-                      <h4 class="text-3xl tracking-tighter text-balance mb-2 flex items-center justify-between">
-                        Sellmotto 
+                    <div class="flex items-center justify-between">
+                        <h4 class="text-3xl tracking-tighter text-balance mb-2">
+                            Sellmotto <span class="text-sm ml-1 text-gray-400 tracking-normal relative">sellmotto.com</span>
+                        </h4>
                         <span class="text-xs text-accent-color tracking-normal font-semibold px-2 py-1 bg-accent-color/10 rounded">Enterprise SaaS</span>
-                      </h4>
+                    </div>
+                  
                       <span class="text-sm text-gray-500 font-medium italic mb-2 block">Co-Founder & CTO</span>
                       <p class="text-gray-500 dark:text-gray-400 mb-4 transition-colors duration-500">Enterprise-level platform streamlining multi-channel e-commerce. Built from scratch with a proprietary architecture to support high-SKU businesses and automate complex listing processes.</p>
                       <p class="text-sm font-medium mb-4">Role: Sole technical engineer, responsible for full architecture (100k+ lines of code) and deployment pipeline.</p>
@@ -196,7 +201,7 @@
                             <span class="tech-tag">PostgreSQL</span>
                             <span class="tech-tag">Stripe</span>
                         </div>
-                      <a href="https://sellmotto.com" target="_blank" class="text-accent-color hover:text-accent-hover font-medium mt-3 inline-block">Visit Site</a>
+                      <span class="text-accent-color hover:text-accent-hover font-medium mt-3 inline-block">Visit Site</span>
                   </div>
                 </div>
                 <div class="bg-slate-100 dark:bg-slate-800 p-6 rounded-lg shadow-lg venture-card transition-colors duration-500">
@@ -205,7 +210,7 @@
                       <span class="text-xs text-gray-500 tracking-normal font-semibold px-2 py-1 bg-gray-500/10 rounded">Custom Software</span>
                     </h4>
                     <span class="text-sm text-gray-500 font-medium italic mb-2 block">Co-Founder & Lead Dev</span>
-                    <p class="text-gray-500 dark:text-gray-400 mb-4 transition-colors duration-500">Custom e-commerce multi-channel listing service integrated directly into a retailer's existing platform to expand online sales capabilities.</p>
+                    <p class="text-gray-500 dark:text-gray-400 mb-4 transition-colors duration-500">Custom e-commerce multi-channel listing and automation service integrated directly into a retailer's existing platform to expand online sales capabilities.</p>
                     <p class="text-gray-500 dark:text-gray-400 text-sm mb-4 transition-colors duration-500">Inspired the architectural foundation and market understanding for Sellmotto. Focused on robust integration and data normalization.</p>
                     <div class="tech-tags-list">
                           <span class="tech-tag">TypeScript</span>
@@ -222,12 +227,12 @@
         <section id="projects" class="py-16 border-t border-gray-200 dark:border-gray-700 transition-colors duration-500">
             <h3 class="section-heading text-2xl tracking-tighter text-balance mb-6">Projects</h3>
             <div class="grid md:grid-cols-2 gap-8">
-                <div class="bg-slate-100 dark:bg-slate-800 rounded-lg shadow-lg venture-card transition-colors duration-500 overflow-hidden">
+                <div class="bg-slate-100 dark:bg-slate-800 rounded-lg shadow-lg venture-card transition-colors duration-500 overflow-hidden interactive-card transition-transform" data-href="https://ranktrivia.com/">
     
-                  <img src="./img/ranktrivia.png" alt="Screenshot of RankTrivia application" class="w-full h-48 object-cover border-b border-gray-200 dark:border-gray-700 transition-colors duration-500">
+                  <img src="./img/ranktrivia.png" alt="Screenshot of RankTrivia application" class="w-full h-48 object-cover border-b border-gray-200 dark:border-gray-700 transition-colors duration-500 rounded-t-md">
 
                   <div class="p-6">
-                      <h4 class="text-3xl tracking-tighter text-balance mb-2">RankTrivia</h4>
+                      <h4 class="text-3xl tracking-tighter text-balance mb-2">RankTrivia <span class="text-sm ml-1 text-gray-400 tracking-normal">ranktrivia.com</span> </h4>
                       <p class="text-gray-500 dark:text-gray-400 mb-3 transition-colors duration-500">A fresh take on trivia, use AI to generate unique ranked lists. Supports solo play and real-time multiplayer using WebSockets.</p>
                       <div class="tech-tags-list mb-4">
                           <span class="tech-tag">TypeScript</span>
@@ -237,17 +242,17 @@
                           <span class="tech-tag">LLM Integration</span>
                       </div>
                       <div class="flex space-x-4">
-                          <a href="https://ranktrivia.com" target="_blank" class="text-accent-color hover:text-accent-hover font-medium mt-3 inline-block">Try a Game</a>
+                          <soan class="text-accent-color hover:text-accent-hover font-medium mt-3 inline-block">Try a Game</span>
                       </div>
                   </div>
               </div>
 
-              <div class="bg-slate-100 dark:bg-slate-800 rounded-lg shadow-lg venture-card transition-colors duration-500 overflow-hidden">
+              <div class="bg-slate-100 dark:bg-slate-800 rounded-lg shadow-lg venture-card transition-colors duration-500 overflow-hidden interactive-card transition-transform" data-href="https://ephemeralgallery.com/">
                   
-                  <img src="./img/ephemeralgallery.png" alt="Screenshot of Ephemeral Gallery concept" class="w-full h-48 object-cover border-b border-gray-200 dark:border-gray-700 transition-colors duration-500">
+                  <img src="./img/ephemeralgallery.png" alt="Screenshot of Ephemeral Gallery concept" class="w-full h-48 object-cover border-b border-gray-200 dark:border-gray-700 transition-colors duration-500 rounded-t-md">
 
                   <div class="p-6">
-                      <h4 class="text-3xl tracking-tighter text-balance mb-2">Ephemeral Gallery</h4>
+                      <h4 class="text-3xl tracking-tighter text-balance mb-2">Ephemeral Gallery <span class="text-sm ml-1 text-gray-400 tracking-normal">ephemeralgallery.com</span></h4>
                       <p class="text-gray-500 dark:text-gray-400 mb-3 transition-colors duration-500">A concept for sharing photography through a fleeting, view-once experience. Focuses on the unique user experience and scarcity.</p>
                       <div class="tech-tags-list mb-4">
                           <span class="tech-tag">TypeScript</span>
@@ -255,7 +260,7 @@
                           <span class="tech-tag">PSQL</span>
                       </div>
                       <div class="flex space-x-4">
-                          <a href="https://ephemeralgallery.com" target="_blank" class="text-accent-color hover:text-accent-hover font-medium mt-3 inline-block">Visit Gallery</a>
+                          <span class="text-accent-color hover:text-accent-hover font-medium mt-3 inline-block">Visit Gallery</span>
                       </div>
                   </div>
               </div>
