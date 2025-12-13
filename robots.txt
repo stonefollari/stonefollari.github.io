@@ -1,0 +1,8 @@
+# Directives for all web crawlers (Google, Bing, etc.)
+User-agent: *
+
+# Allow all bots full access to the site content
+Disallow:
+
+# Explicitly tell Google where the sitemap is located
+Sitemap: https://stonefollari.github.io/sitemap.xml
